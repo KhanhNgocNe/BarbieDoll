@@ -156,7 +156,36 @@ include_once("connection.php");
     <br> 
     <br>
  <hr size="60px", color="black" align="center", width="70%">
+ <h1 align="center">ALL PRODUCT</h1>
+<div class="bg-1">
+    <div class="container">
+      <div class="row text-center">
+      <?php
+                // 	include_once("database.php");
+        $result = pg_query($conn, "SELECT * FROM product");
+        
+          if (!$result) { //add this check.
+            die('Invalid query: ' . pg_error($conn));
+                        }
+          while($row = pg_fetch_array($result,Null, PGSQL_ASSOC)){
+        ?>
+        <div class="col-sm-3">
+          <div class="thumbnail" style="background: #F2F2F2;">
+          <img src="product-imgs/<?php echo $row['pro_image']?>" alt="Product" width="400" height="300">
+            <p><strong><?php echo  $row['product_name']?></strong></p>
+            <p>$<?php echo  $row['price']?></p>
+            <a href="?page=cart"><button class="btn">Buy Now</button></a>
+          </div>
+        </div>
+        <?php
+				}
+				?>
+        </div>
+    </div>
 
+    <br> 
+    <br>
+ <hr size="60px", color="black" align="center", width="70%">   
     
 <h1 align="center">PICTURE</h1>
 
@@ -224,32 +253,6 @@ include_once("connection.php");
   </div>
 </div>
 
-<h1 align="center">ALL PRODUCT</h1>
-<div class="bg-1">
-    <div class="container">
-      <div class="row text-center">
-      <?php
-                // 	include_once("database.php");
-        $result = pg_query($conn, "SELECT * FROM product");
-        
-          if (!$result) { //add this check.
-            die('Invalid query: ' . pg_error($conn));
-                        }
-          while($row = pg_fetch_array($result,Null, PGSQL_ASSOC)){
-        ?>
-        <div class="col-sm-3">
-          <div class="thumbnail" style="background: #F2F2F2;">
-          <img src="product-imgs/<?php echo $row['pro_image']?>" alt="Product" width="400" height="300">
-            <p><strong><?php echo  $row['product_name']?></strong></p>
-            <p>$<?php echo  $row['price']?></p>
-            <a href="?page=cart"><button class="btn">Buy Now</button></a>
-          </div>
-        </div>
-        <?php
-				}
-				?>
-        </div>
-    </div>
 </div>
 </body>
 </html>
