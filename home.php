@@ -243,7 +243,7 @@ include_once("connection.php");
             <img src="image/Doll4.jpg"class="image" style="width:100%" alt="Image">
             </div>
           </div>
-          <br> <br>
+          <br><br>
         </div>
       </div>
     </div>
