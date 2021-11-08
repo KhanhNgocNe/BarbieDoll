@@ -4,17 +4,17 @@
 <?php
 	include_once("connection.php");
 	Function bind_Category_List($conn,$selectedValue){
-		$sqlstring="SELECT Cat_ID, Cat_Name FROM category";
+		$sqlstring="SELECT cat_id, cat_name FROM category";
 		$result = pg_query($conn, $sqlstring);
 		echo "<select name='CategoryList' class='form-control'>
 			<option value='0'>Chose category</option>";
-			while ($row = pgsql_fetch_array($result, PGSQL_ASSOC)){
-				if($row['Cat_ID'] == $selectedValue)
+			while ($row = pg_fetch_array($result, Null, PGSQL_ASSOC)){
+				if($row['cat_id'] == $selectedValue)
 				{
-					echo "<option value='".$row['Cat_ID']."' selected>".$row['Cat_Name']."</option>";
+					echo "<option value='".$row['cat_id']."' selected>".$row['cat_name']."</option>";
 				}
 				else{
-					echo "<option value='".$row['Cat_ID']."'>".$row['Cat_Name']."</option>";
+					echo "<option value='".$row['Cat_ID']."'>".$row['cat_name']."</option>";
 				}
 			}
 		echo "</select>";
@@ -22,21 +22,19 @@
 	if(isset($_GET["id"]))
 	{
 		$id= $_GET["id"];
-		$sqlstring = "SELECT Product_Name, Price, oldPrice, SmallDesc, DetailDesc, ProDate,
-		Pro_qty, Pro_image, Cat_ID
-		FROM product WHERE Product_ID = '$id' ";
+		$sqlstring = "SELECT product_name, price, detaildesc, prodate,
+		pro_qty, pro_image, cat_id
+		FROM product WHERE product_id = '$id' ";
 
-		$result = pgsql_query($conn, $sqlstring);
-		$row = pgsql_fetch_array($result, PGSQL_ASSOC);
+		$result = pg_query($conn, $sqlstring);
+		$row = pg_fetch_array($result, Null, PGSQL_ASSOC);
 		
-		$proname =$row["Product_Name"];
-		$short = $row['SmallDesc'];
-		$detail=$row['DetailDesc'];
-		$price=$row['Price'];
-		$oldprice=$row['oldPrice'];
-		$qty=$row['Pro_qty'];
-		$pic =$row['Pro_image'];
-		$category= $row['Cat_ID'];
+		$proname =$row["product_name"];
+		$detail=$row['detaildesc'];
+		$price=$row['price'];
+		$qty=$row['pro_qty'];
+		$pic =$row['pro_image'];
+		$category= $row['cat_id'];
 
 ?>
 <div class="container">
@@ -70,19 +68,6 @@
 							      <input type="text" name="txtPrice" id="txtPrice" class="form-control" placeholder="Price" value='<?php echo $price; ?>'/>
 							</div>
                  </div>   
-				 <div class="form-group">  
-                    <label for="lblGia" class="col-sm-2 control-label">Old Price(*):  </label>
-							<div class="col-sm-10">
-							      <input type="text" name="txtoldPrice" id="txtoldPrice" class="form-control" placeholder="oldPrice" value='<?php echo $oldprice; ?>'/>
-							</div>
-                 </div>   
-                            
-                <div class="form-group">   
-                    <label for="lblShort" class="col-sm-2 control-label">Short description(*):  </label>
-							<div class="col-sm-10">
-							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Short description" value='<?php echo $short;?>'/>
-							</div>
-                </div>
                             
                 <div class="form-group">  
         	        <label for="lblDetail" class="col-sm-2 control-label">Detail description(*):  </label>
@@ -147,10 +132,9 @@
 	{
 		$id=$_POST["txtID"];
 		$proname=$_POST["txtName"];
-		$short=$_POST['txtShort'];
 		$detail=$_POST['txtDetail'];
 		$price=$_POST['txtPrice'];
-		$oldprice=$_POST['txtoldPrice'];
+
 		$qty=$_POST['txtQty'];
 		$pic=$_FILES['txtImage'];
 		$category=$_POST['CategoryList'];
@@ -188,16 +172,16 @@
 				{
 					if($pic['size']<= 614400)
 					{
-						$sq="SELECT * FROM product WHERE Product_ID != '$id' and Product_Name='$proname'";
+						$sq="SELECT * FROM product WHERE product_id != '$id' and product_name='$proname'";
 						$result=pg_query($conn,$sq);
 						if(pg_num_rows($result)==0)
 						{
 						copy($pic['tmp_name'], "product-imgs/".$pic['name']);
 						$filePic = $pic['name'];
 
-						$sqlstring="UPDATE product SET Product_Name='$proname', Price=$price, oldPrice='$oldprice', SmallDesc='$short',
-						DetailDesc='$detail', Pro_qty=$qty, Pro_image='$filePic',Cat_ID='$category',
-						ProDate='".date('Y-m-d H:i:s')."' WHERE Product_ID='$id'";
+						$sqlstring="UPDATE product SET product_name='$proname', price=$price,
+						detaildesc='$detail', pro_qty=$qty, pro_image='$filePic',cat_id='$category',
+						prodate='".date('Y-m-d H:i:s')."' WHERE product_id='$id'";
 						pg_query($conn,$sqlstring);
 						echo '<meta http-equiv="refresh" content="0;URL=?page=product_management"/>';
 						}
@@ -218,13 +202,13 @@
 			}
 			else
 			{
-				$sq="SELECT * FROM product where Product_ID != '$id' and Product_Name='$proname'";
+				$sq="SELECT * FROM product where product_id != '$id' and product_name='$proname'";
 				$result= pg_query($conn,$sq);
 				if(pg_num_rows($result)==0)
 				{
-					$sqlstring="UPDATE product SET Product_Name='$proname',
-					Price=$price, oldPrice='$oldprice',SmallDesc='$short',DetailDesc='$detail',Pro_qty=$qty,
-					Cat_ID='$category',ProDate='".date('Y-m-d H:i:s')."' WHERE Product_ID='$id'";
+					$sqlstring="UPDATE product SET product_name='$proname',
+					price=$price, detaildesc='$detail',pro_qty=$qty,
+					cat_id='$category',prodate='".date('Y-m-d H:i:s')."' WHERE product_id='$id'";
 					pg_query($conn,$sqlstring);
 					echo '<meta http-equiv="refresh" content="0;URL=?page=product_management"/>';
 				}
