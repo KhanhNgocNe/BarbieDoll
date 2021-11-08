@@ -29,7 +29,7 @@ else
             $row=pg_fetch_array($res, Null, PGSQL_ASSOC);
             $filePic=$row['pro_image'];
             unlink("product-imgs/".$filePic);
-            pgsql_query($conn,"DELETE FROM product Where product_id='$id'");
+            pg_query($conn,"DELETE FROM product Where product_id='$id'");
         }
     }
     ?>
