@@ -66,7 +66,7 @@ else
                 From product a, category b
                 where a.cat_id = b.cat_id ORDER BY prodate DESC");
 
-                while ($row=pgsql_fetch_array($result, PGSQL_ASSOC)){
+                while ($row=pg_fetch_array($result, PGSQL_ASSOC)){
 
 			?>
 			<tr>
