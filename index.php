@@ -112,7 +112,7 @@
             include_once("LoginJS1.php");
           }
           else if($page=="logout"){
-            include_once("logout.php");
+            include_once("Logout.php");
           }
           else if($page=="fashiondoll"){
             include_once("FashionDoll.php");
