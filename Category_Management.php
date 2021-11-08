@@ -47,7 +47,7 @@ else
             <?php
             $No=1;
             $result=pg_query($conn,"SELECT * FROM category");
-            while($row=pgsql_fetch_array($result,Null, PGSQL_ASSOC))
+            while($row=pg_fetch_array($result, Null, PGSQL_ASSOC))
             {
             ?>
 			<tr>
