@@ -15,7 +15,7 @@
   <body>
 
   <div class="container">
-    <h1><u>All Product</u></h1>
+    <h1><u>Result</u></h1>
 </div>
 <div class="container">
     <?php
