@@ -8,7 +8,7 @@ else
 {
 ?>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script language="javascript">
     function deleteConfirm(){
         if(confirm("Are you sure to delete?")){

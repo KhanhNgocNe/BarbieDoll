@@ -1,5 +1,5 @@
     <!-- Bootstrap -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="./scripts/ckeditor/ckeditor.js"></script>
 <?php
@@ -56,8 +56,8 @@ if(isset($_POST["btnAdd"]))
 				{
 					copy($pic['tmp_name'],"product-imgs/".$pic['name']);
 					$filePic=$pic['name'];
-					$sqlstring="INSERT INTO product(product_id,product_name,price,smalldesc,
-					prodate,pro_qty,pro_image, cat_id)
+					$sqlstring="INSERT INTO product(product_id,product_name,price,
+					detaildesc,prodate,pro_qty,pro_image, cat_id)
 					VALUES ('$id','$proname','$price','$detail','".date('Y-m-d H:i:s')."',
 					'$qty','$filePic','$category')";
 					pg_query($conn,$sqlstring);
