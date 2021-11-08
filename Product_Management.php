@@ -46,7 +46,7 @@ else
                 <tr>
                     <th><strong>No.</strong></th>
                     <th><strong>Product ID</strong></th>
-                    <th><strong>Product Name</strong></th>
+                    <th><strong>Product ID</strong></th>
                     <th><strong>Price</strong></th>
                     <th><strong>Quantity</strong></th>
                     <th><strong>Category</strong></th>
