@@ -49,7 +49,7 @@ else
                     <th><strong>Product Name</strong></th>
                     <th><strong>Price</strong></th>
                     <th><strong>Quantity</strong></th>
-                    <th><strong>Category ID</strong></th>
+                    <th><strong>Category</strong></th>
                     <th><strong>Image</strong></th>
                     <th><strong>Edit</strong></th>
                     <th><strong>Delete</strong></th>
@@ -65,7 +65,7 @@ else
                 From product a, category b
                 where a.cat_id = b.cat_id ORDER BY prodate DESC");
 
-                while ($row=pg_fetch_array($result,Null, PGSQL_ASSOC)){
+                while ($row=pg_fetch_array($result, Null, PGSQL_ASSOC)){
 
 			?>
 			<tr>
