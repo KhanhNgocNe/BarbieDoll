@@ -8,7 +8,6 @@ else
 {
 ?>
 
-    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script language="javascript">
     function deleteConfirm(){
@@ -66,7 +65,7 @@ else
                 From product a, category b
                 where a.cat_id = b.cat_id ORDER BY prodate DESC");
 
-                while ($row=pg_fetch_array($result, PGSQL_ASSOC)){
+                while ($row=pg_fetch_array($result,Null, PGSQL_ASSOC)){
 
 			?>
 			<tr>
