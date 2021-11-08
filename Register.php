@@ -12,6 +12,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="js/jquery-3.2.0.min.js"/></script>
+<script src="js/jquery.dataTables.min.js"/></script>
+<script src="js/dataTables.bootstrap.min.js"/></script>
 <?php
 if(isset($_POST['btnRegister'])){
     $us=$_POST['txtUsername'];
@@ -21,12 +28,12 @@ if(isset($_POST['btnRegister'])){
     $email=$_POST['txtEmail'];
     $address=$_POST['txtAddress'];
     $tel=$_POST['txtTel'];
-    if(isset($_POST['grprender'])){
-        $sex=$_POST['grprender'];
+    if(isset($_POST['grpRender'])){
+        $sex=$_POST['grpRender'];
     }
-    $date=$_POST['sldate'];
-    $month=$_POST['slmonth'];
-    $year=$_POST['slyear'];
+    $date=$_POST['slDate'];
+    $month=$_POST['slMonth'];
+    $year=$_POST['slYear'];
 
     $err="";
     if($us==""||$pass1==""||$pass2==""||$fullname==""||$email==""||$address==""
@@ -53,7 +60,7 @@ if(isset($_POST['btnRegister'])){
         if(pg_num_rows($res)==0)
         {
             pg_query($conn,"INSERT INTO customer(username,password,custname,gender,address,telephone,email,cusdate,
-            cusmonth,cusyear,ssn,sctivecode,state)
+            cusmonth,cusyear,ssn,activecode,state)
             VALUES ('$us','$pass','$fullname','$sex','$address','$tel','$email','$date',
             '$month','$year','','',0)") or die(pg_error($conn));
             echo'<meta http-equiv="refresh" content="0;URL=?page=login"/>';
@@ -76,14 +83,14 @@ if(isset($_POST['btnRegister'])){
                       </div>  
                       
                        <div class="form-group">   
-                            <label for="" class="col-sm-2 control-label">Password(*):  </label>
+                            <label for="txtPassword" class="col-sm-2 control-label">Password(*):  </label>
 							<div class="col-sm-10">
 							      <input type="password" name="txtPass1" id="txtPass1" class="form-control" placeholder="Password"/>
 							</div>
                        </div>     
                        
-                       <div class="form-group"> 
-                            <label for="" class="col-sm-2 control-label">Confirm Password(*):  </label>
+                       <div class="form-group">
+<label for="txtConfirmPass" class="col-sm-2 control-label">Confirm Password(*):  </label>
 							<div class="col-sm-10">
 							      <input type="password" name="txtPass2" id="txtPass2" class="form-control" placeholder="Confirm your Password"/>
 							</div>
@@ -111,14 +118,14 @@ if(isset($_POST['btnRegister'])){
                         </div>  
                         
                          <div class="form-group">  
-                            <label for="lbltel" class="col-sm-2 control-label">Telephone(*):  </label>
+                            <label for="lblTel" class="col-sm-2 control-label">Telephone(*):  </label>
 							<div class="col-sm-10">
 							      <input type="text" name="txtTel" id="txtTel" value="" class="form-control" placeholder="Telephone" />
 							</div>
                          </div> 
                          
                           <div class="form-group">  
-                            <label for="lblgender" class="col-sm-2 control-label">Gender(*):  </label>
+                            <label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
 							<div class="col-sm-10">                              
                                       <label class="radio-inline"><input type="radio" name="grpRender" value="0" id="grpRender"  />
                                       Male</label>
@@ -131,11 +138,11 @@ if(isset($_POST['btnRegister'])){
                           </div> 
                           
                           <div class="form-group"> 
-                            <label for="lblbirthday" class="col-sm-2 control-label">Date of Birth(*):  </label>
+                            <label for="lblDate" class="col-sm-2 control-label">Date of Birth(*):  </label>
                             <div class="col-sm-10 input-group">
                                 <span class="input-group-btn">
                                   <select name="slDate" id="slDate" class="form-control" >
-                						<option value="0">Choose Date</option>
+<option value="0">Choose Date</option>
 										<?php
                                             for($i=1;$i<=31;$i++)
                                              {                                                
@@ -169,7 +176,7 @@ if(isset($_POST['btnRegister'])){
                                 </span>
                            </div>
                       </div>	
-					<div class="form-group" align="center">
+					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 						      <input type="submit"  class="btn btn-primary" name="btnRegister" id="btnRegister" value="Register"/>
                               	
@@ -177,5 +184,4 @@ if(isset($_POST['btnRegister'])){
                      </div>
 				</form>
 </div>
-    
 
