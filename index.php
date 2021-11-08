@@ -106,7 +106,7 @@
             include_once("cart.php");
           }
           else if($page=="register"){
-            include_once("register.php");
+            include_once("Register.php");
           }
           else if($page=="login"){
             include_once("LoginJS1.php");
