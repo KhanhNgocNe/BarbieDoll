@@ -243,10 +243,7 @@ include_once("connection.php");
             <img src="image/Doll4.jpg"class="image" style="width:100%" alt="Image">
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-12 block9">
-            </div>
-          </div>
+          <br> <br>
         </div>
       </div>
     </div>
