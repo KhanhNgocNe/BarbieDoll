@@ -21,8 +21,8 @@ if(isset($_POST['btnRegister'])){
     $email=$_POST['txtEmail'];
     $address=$_POST['txtAddress'];
     $tel=$_POST['txtTel'];
-    if(isset($_POST['grpRender'])){
-        $sex=$_POST['grpRender'];
+    if(isset($_POST['grprender'])){
+        $sex=$_POST['grprender'];
     }
     $date=$_POST['sldate'];
     $month=$_POST['slmonth'];
@@ -53,7 +53,7 @@ if(isset($_POST['btnRegister'])){
         if(pg_num_rows($res)==0)
         {
             pg_query($conn,"INSERT INTO customer(username,password,custname,gender,address,telephone,email,cusdate,
-            CusMonth,CusYear,SSN,ActiveCode,state)
+            cusmonth,cusyear,ssn,sctivecode,state)
             VALUES ('$us','$pass','$fullname','$sex','$address','$tel','$email','$date',
             '$month','$year','','',0)") or die(pg_error($conn));
             echo'<meta http-equiv="refresh" content="0;URL=?page=login"/>';

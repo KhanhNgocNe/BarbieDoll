@@ -28,7 +28,7 @@ else
             $sq="SELECT pro_image from product WHERE product_id='$id'";
             $res=pg_query($conn,$sq);
             $row=pg_fetch_array($res, Null, PGSQL_ASSOC);
-            $filePic=$row['Pro_image'];
+            $filePic=$row['pro_image'];
             unlink("product-imgs/".$filePic);
             pgsql_query($conn,"DELETE FROM product Where product_id='$id'");
         }
