@@ -60,7 +60,7 @@ if(isset($_POST["btnAdd"]))
 					detaildesc,prodate,pro_qty,pro_image, cat_id)
 					VALUES ('$id','$proname','$price','$detail','".date('Y-m-d H:i:s')."',
 					'$qty','$filePic','$category')";
-					pg_query($conn,$sqlstring);
+					pg_query($conn,$sqlstring) or die(pg_errormessage($conn));
 					echo'<meta http-equiv="refresh" content="0;URL=?page=product_management"/>';	
 				}
 				else{
