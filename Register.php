@@ -24,9 +24,9 @@ if(isset($_POST['btnRegister'])){
     if(isset($_POST['grpRender'])){
         $sex=$_POST['grpRender'];
     }
-    $date=$_POST['slDate'];
-    $month=$_POST['slMonth'];
-    $year=$_POST['slYear'];
+    $date=$_POST['sldate'];
+    $month=$_POST['slmonth'];
+    $year=$_POST['slyear'];
 
     $err="";
     if($us==""||$pass1==""||$pass2==""||$fullname==""||$email==""||$address==""
@@ -48,11 +48,11 @@ if(isset($_POST['btnRegister'])){
     else{
         include_once("connection.php");
         $pass=md5($pass1);
-        $sq="SELECT * FROM customer WHERE Username='$us' OR email='$email'";
+        $sq="SELECT * FROM customer WHERE username='$us' OR email='$email'";
         $res=pg_query($conn,$sq);
         if(pg_num_rows($res)==0)
         {
-            pg_query($conn,"INSERT INTO customer(Username,Password,CustName,gender,Address,telephone,email,CusDate,
+            pg_query($conn,"INSERT INTO customer(username,password,custname,gender,address,telephone,email,cusdate,
             CusMonth,CusYear,SSN,ActiveCode,state)
             VALUES ('$us','$pass','$fullname','$sex','$address','$tel','$email','$date',
             '$month','$year','','',0)") or die(pg_error($conn));

@@ -5,12 +5,12 @@
 <?php
 	include_once("connection.php");
 	function bind_Category_List($conn){
-		$sqlstring="select Cat_ID, Cat_Name from category";
+		$sqlstring="select cat_id, cat_name from category";
 		$result=pg_query($conn, $sqlstring);
 		echo"<select name='CategoryList' class='form-control'>
 		<option value='0'>Choose category</option>";
 		while($row=pg_fetch_array($result,Null, PGSQL_ASSOC)){
-			echo"<option value='".$row['cat_id']."'>".$row['Cat_Name'].
+			echo"<option value='".$row['cat_id']."'>".$row['cat_name'].
 			"</option>";
 		}
 		echo"</select>";

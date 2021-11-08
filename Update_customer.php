@@ -7,8 +7,8 @@ $result=pg_query($conn,$query) or die(pg_error($conn));
 $row = pgsql_fetch_array($result,PGSQL_ASSOC);
 $us=$_SESSION["us"];
 $email=$row["email"];
-$fullname=$row["CustName"];
-$address=$row["Address"];
+$fullname=$row["custname"];
+$address=$row["address"];
 $telephone=$row["telephone"];
 
 //Update information when the user presses the "Update" button
@@ -23,14 +23,14 @@ if(isset($_POST["btnUpdate"])){
 		if($_POST['txtPass1']!="")
 		{
 			$pass=md5($_POST['txtPass1']);
-			$sq="UPDATE customer SET CustName='$fullname',Address='$address',telephone='$telephone',
+			$sq="UPDATE customer SET custname='$fullname',address='$address',telephone='$telephone',
 			Password ='$pass'
-			WHERE Username = '".$_SESSION['us']."'";
+			WHERE username = '".$_SESSION['us']."'";
 			pg_query($conn,$sq) or die(pg_error($conn));
 		}
 		else{
-			$sq="UPDATE customer SET CustName='$fullname',Address='$address',telephone='$telephone'
-			WHERE Username = '".$_SESSION['us']."'";
+			$sq="UPDATE customer SET custname='$fullname',address='$address',telephone='$telephone'
+			WHERE username = '".$_SESSION['us']."'";
 			pg_query($conn,$sq) or die(pg_error($conn));
 		}
 		echo '<meta http-equiv="refresh" content="0;URL=index.php" />';
