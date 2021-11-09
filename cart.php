@@ -25,16 +25,16 @@
             <div class="col-md-5 col-lg-3 col-xl-3">
               <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                 <img class="img-fluid" width="200px" heigth="200px"
-                  src="image/lv.sunsong.png" alt="Sample">
+                  src="product-imgs/GWF11_01.png" alt="Sample">
               </div>
             </div>
             <div class="col-md-7 col-lg-9 col-xl-9">
               <div>
                 <div class="d-flex justify-content-between">
                   <div>
-                    <h5>LOUIS VUITTON</h5>
-                    <p class="mb-3 text-muted text-uppercase small">Sun Song</p>
-                    <p class="mb-2 text-muted text-uppercase small">Color:  Yellow</p>
+                    <h5>Clothes</h5>
+                    <p class="mb-3 text-muted text-uppercase small">Bridal Outfit</p>
+                    <p class="mb-2 text-muted text-uppercase small">Color:  Black White Pink</p>
                   </div>
                   <div>
                     <div class="def-number-input number-input safari_only mb-0 w-100">
@@ -52,7 +52,7 @@
                     <a href="#!" type="button" class="card-link-secondary small text-uppercase"><i
                         class="fas fa-heart mr-1"></i> Move to wish list </a>
                   </div>
-                  <p class="mb-0"><span><strong id="summary">$390</strong></span></p class="mb-0">
+                  <p class="mb-0"><span><strong id="summary">$10</strong></span></p class="mb-0">
                 </div>
               </div>
             </div>
@@ -62,16 +62,16 @@
             <div class="col-md-5 col-lg-3 col-xl-3">
             <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                 <img class="img-fluid" width="200px" height="200px"
-                  src="image/gucci.edp.jpg" alt="Sample">
+                  src="product-imgs/KenDoll1.jpg" alt="Sample">
               </div>
             </div>
             <div class="col-md-7 col-lg-9 col-xl-9">
               <div>
                 <div class="d-flex justify-content-between">
                   <div>
-                    <h5>GUCCI</h5>
-                    <p class="mb-3 text-muted text-uppercase small">Gucci Bloom 100ml eau de parfu</p>
-                    <p class="mb-2 text-muted text-uppercase small">Color: Pink</p>
+                    <h5>Ken Dolls</h5>
+                    <p class="mb-3 text-muted text-uppercase small">Sculpted Blonde Hair</p>
+                    <p class="mb-2 text-muted text-uppercase small">Color: Pink Blue </p>
                   </div>
                   <div>
                     <div class="def-number-input number-input safari_only mb-0 w-100">
@@ -86,7 +86,7 @@
                     <a href="#!" type="button" class="card-link-secondary small text-uppercase"><i
                         class="fas fa-heart mr-1"></i> Move to wish list </a>
                   </div>
-                  <p class="mb-0"><span><strong>$135</strong></span></p class="mb-0">
+                  <p class="mb-0"><span><strong>$10</strong></span></p class="mb-0">
                 </div>
               </div>
             </div>
@@ -146,11 +146,11 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
               Temporary amount
-              <span>$325</span>
+              <span>$20</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center px-0">
               Shipping
-              <span>$55</span>
+              <span>$5</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
               <div>
@@ -159,7 +159,7 @@
                   <p class="mb-0">(including VAT)</p>
                 </strong>
               </div>
-              <span><strong>$405</strong></span>
+              <span><strong>$25</strong></span>
             </li>
           </ul>
 
