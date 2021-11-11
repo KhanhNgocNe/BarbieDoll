@@ -152,6 +152,9 @@
 		{
 			$err .= "<li>Choose product category,please</li>";
 		}
+		if($price <= 0){
+			$err.="<li>Product price must be more than 0</li>";
+		}
 		if(!is_numeric($price))
 		{
 			$err .= "<li>Product price must be number</li>";
